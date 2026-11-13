@@ -89,7 +89,7 @@
       card.style.setProperty("--i", Math.min(i, 9));
       card.appendChild(photoFor(p));
       card.appendChild(el("h3", null, esc(p.name)));
-      card.appendChild(el("span", "cat-tag", esc(p.category)));
+      if (p.desc) card.appendChild(el("p", "desc", esc(p.desc)));
       card.appendChild(el("div", "price", money(p.price)));
       var a = el("a", "wa-btn", "Comprar");
       a.href = waUrl("Hola! Quiero comprar: " + p.name);
@@ -143,12 +143,11 @@
 
   carousel.innerHTML = '<div class="slide active"><span class="ph-label">foto 1:1</span></div>';
   var loaded = 0;
-  PRODUCTS.slice(0, 6).forEach(function (p) {
+ mixed.forEach(function (p) {
     if (!p.image) return;
     var img = new Image();
     img.alt = "";
     img.onload = function () {
-      if (loaded >= 4) return;
       if (loaded === 0) carousel.innerHTML = "";
       loaded++;
       var s = el("div", "slide");
@@ -164,7 +163,7 @@
     if (slides.length < 2) return;
     current = (current + 1) % slides.length;
     sync();
-  }, 4000);
+  }, 3000);
 
   // Navbar fijo: se compacta al hacer scroll
   var header = document.querySelector("header");
