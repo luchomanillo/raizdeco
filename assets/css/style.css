@@ -334,3 +334,19 @@ img{
   user-select:none;
   -webkit-touch-callout:none; /* evita el menú al mantener presionado en iPhone */
 }
+
+.product .desc{
+  font-size:14px;
+  line-height:1.45;
+  color:var(--sage);
+  margin:6px auto 0;
+  max-width:26ch;
+  text-align:center;
+}
+.product{display:flex;flex-direction:column;}
+.product .price{margin-top:auto;padding-top:10px;}
+.product .wa-btn{margin-top:14px;align-self:center;}
+
+.product{display:flex;flex-direction:column;}
+.product .price{margin-top:auto;padding-top:10px;}
+.product .wa-btn{align-self:center;}
